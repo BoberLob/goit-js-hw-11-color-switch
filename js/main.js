@@ -6,7 +6,8 @@ const colors = [
   '#009688',
   '#795548',
 ];
-
+let timerId;
+const lastElColors = colors.length - 1;
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
@@ -14,19 +15,20 @@ const randomIntegerFromInterval = (min, max) => {
 const refs = {
     buttonStart: document.querySelector('button[data-action="start"]'),
     buttonStop: document.querySelector('button[data-action="stop"]'),
-    body: document.querySelector('body'),
+    body: document.body,
 }
 
 refs.buttonStart.addEventListener('click', () => {
     refs.buttonStart.disabled = true;
     timerId = setInterval(() => {
         refs.body.style.backgroundColor =
-            colors[randomIntegerFromInterval(0, colors.length - 1)];
+            colors[randomIntegerFromInterval(0, lastElColors)];
     }, 1000);
 });
 
 refs.buttonStop.addEventListener('click', () => {
-  refs.buttonStop.disabled = false;
+
+   refs.buttonStop.disabled = false;
    refs.buttonStart.disabled = false;
-  clearInterval(null);  
+  clearInterval(timerId);  
 });
