@@ -6,8 +6,10 @@ const colors = [
   '#009688',
   '#795548',
 ];
+
 let timerId;
 const lastElColors = colors.length - 1;
+
 const randomIntegerFromInterval = (min, max) => {
   return Math.floor(Math.random() * (max - min + 1) + min);
 };
