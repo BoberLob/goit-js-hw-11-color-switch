@@ -31,7 +31,7 @@ refs.buttonStart.addEventListener('click', () => {
 
 refs.buttonStop.addEventListener('click', () => {
 
-   refs.buttonStop.disabled = false;
+   refs.buttonStop.disabled = true;
    refs.buttonStart.disabled = false;
   clearInterval(timerId);  
 });
