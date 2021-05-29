@@ -22,6 +22,7 @@ const refs = {
 
 refs.buttonStart.addEventListener('click', () => {
     refs.buttonStart.disabled = true;
+    refs.buttonStop.disabled = false;
     timerId = setInterval(() => {
         refs.body.style.backgroundColor =
             colors[randomIntegerFromInterval(0, lastElColors)];
